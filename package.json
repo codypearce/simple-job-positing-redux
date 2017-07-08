@@ -1,0 +1,26 @@
+{
+  "name": "simple-job-posting-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --debug",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codypearce/simple-job-posting-redux.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codypearce/simple-job-posting-redux/issues"
+  },
+  "homepage": "https://github.com/codypearce/simple-job-posting-redux#readme",
+  "devDependencies": {
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.1.0"
+  }
+}
