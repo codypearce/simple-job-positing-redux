@@ -7,3 +7,11 @@ html {
 .text-center {
   text-align: center;
 }
+
+.center-block {
+  margin: 10px auto;
+}
+.center-input {
+  display: block;
+  margin: 10px auto;
+}

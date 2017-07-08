@@ -4,6 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import Header from './components/shared/Header';
+import JobsList from './components/jobs/JobsList';
 
 require("./styles/style.css");
 
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <JobsList />
       </div>
     )
   }
