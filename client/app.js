@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import Header from './components/shared/Header';
+
 require("./styles/style.css");
 
 class App extends Component {
   render() {
     return (
-      <h1>Test</h1>
+      <div>
+        <Header />
+      </div>
     )
   }
 }

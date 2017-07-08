@@ -3,3 +3,7 @@ html {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+.text-center {
+  text-align: center;
+}
