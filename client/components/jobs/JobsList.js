@@ -13,8 +13,10 @@ export default class JobList extends Component {
   }
   render() {
     return (
-      <div className="center-block">
-        <input className="center-input" value={this.state.value} onChange={(event) => this._handleChange(event)} />
+      <div className="center-block ">
+        <div className="row">
+          <input className="center-input col-3 form-control" value={this.state.value} onChange={(event) => this._handleChange(event)} placeholder="Search for jobs" />
+        </div>
       </div>
     )
   }
