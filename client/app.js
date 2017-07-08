@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+require("./styles/style.css");
+
 class App extends Component {
   render() {
     return (
