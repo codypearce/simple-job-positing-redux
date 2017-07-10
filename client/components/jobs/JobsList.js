@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Job from './Job';
 
 export default class JobList extends Component {
   constructor() {
@@ -8,8 +9,8 @@ export default class JobList extends Component {
 
   render() {
     return (
-      <div className="col-3 col-offset-3">
-        
+      <div className="container">
+        <Job />
       </div>
     )
   }
