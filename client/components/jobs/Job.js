@@ -9,13 +9,17 @@ export default class Job extends Component {
   render() {
     return (
       <div className="row">
-        <div>
+        <div className="col">
           <h2>Job Name</h2>
           <p>Company Name</p>
         </div>
+        <div className="col">
         <p>Salary</p>
-        <p>Location</p>
-        <div>
+        </div>
+        <div  className="col">
+          <p>Location</p>
+        </div>
+        <div  className="col">
           <button className="btn btn-primary">Apply</button>
           <button className="btn btn-warn">Not Interested</button>
         </div>
