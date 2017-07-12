@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Job from './Job';
 
-export default class JobList extends Component {
+class JobList extends Component {
   constructor() {
     super();
   }
-
+  _renderList() {
+    return this.props.jobs.map(job => {
+      return (
+        <Job key={job.title} job={job} />
+      )
+    })
+  }
   render() {
     return (
       <div className="container">
-        <Job />
+        {this._renderList()}
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    jobs: state.jobs,
+  };
+}
+
+export default connect(mapStateToProps)(JobList);
