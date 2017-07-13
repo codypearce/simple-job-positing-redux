@@ -9,6 +9,8 @@ class JobList extends Component {
   }
   _renderList() {
     return this.props.jobs.map(job => {
+      if(!job.show) { return; }
+
       return (
         <Job key={job.title} job={job} />
       )
