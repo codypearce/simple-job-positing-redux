@@ -7,17 +7,18 @@ export default class Job extends Component {
   }
 
   render() {
+    const { job } = this.props;
     return (
-      <div className="row">
-        <div className="col">
-          <h2>Job Name</h2>
-          <p>Company Name</p>
+      <div className="row my-4">
+        <div className="col-4">
+          <h2>{job.title}</h2>
+          <p>{job.company}</p>
         </div>
         <div className="col">
-        <p>Salary</p>
+        <p>{job.salary}</p>
         </div>
         <div  className="col">
-          <p>Location</p>
+          <p>{job.location}</p>
         </div>
         <div  className="col">
           <button className="btn btn-primary">Apply</button>
