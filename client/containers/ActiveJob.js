@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class JobList extends Component {
+class ActiveJob extends Component {
   constructor() {
     super();
   }
@@ -37,4 +37,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(JobList);
+export default connect(mapStateToProps)(ActiveJob);
