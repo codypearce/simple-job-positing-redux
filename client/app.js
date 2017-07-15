@@ -5,7 +5,7 @@ injectTapEventPlugin();
 
 import Header from './components/shared/Header';
 import SearchBar from './components/jobs/SearchBar';
-import JobsList from './components/jobs/JobsList';
+import JobsList from './containers/JobsList';
 import ActiveJob from './containers/ActiveJob';
 
 require("./styles/style.css");

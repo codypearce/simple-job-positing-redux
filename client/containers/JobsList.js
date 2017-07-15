@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectJob } from '../../actions/index';
+import { selectJob } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
-import Job from './Job';
+import Job from '../components/jobs/Job';
 
 class JobList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   _renderList() {
     return this.props.jobs.map(job => {
@@ -19,6 +19,9 @@ class JobList extends Component {
     })
   }
   render() {
+    if(this.props.job) {
+      return null;
+    }
     return (
       <div className="container">
         {this._renderList()}
@@ -30,6 +33,7 @@ class JobList extends Component {
 function mapStateToProps(state) {
   return {
     jobs: state.jobs,
+    job: state.activeJob,
   };
 }
 

@@ -4,15 +4,8 @@ import { connect } from 'react-redux';
 class ActiveJob extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      job: this.props.job ? this.props.job : null,
-    }
   }
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.job !== this.state.job) {
-      this.setState({job: nextProps.job})
-    }
-  }
+
   _renderJob() {
     const { job } = this.props;
     return (
@@ -37,8 +30,6 @@ class ActiveJob extends Component {
       )
   }
   render() {
-    const { job } = this.props;
-    console.log(this.props)
     return (
       <div>
       {this.props.job ? this._renderJob() : null}
