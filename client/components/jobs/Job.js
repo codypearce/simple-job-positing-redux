@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 
 export default class Job extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   _handleClick() {
-    console.log(this.props.job)
+    this.props.selectJob(this.props.job)
   }
   render() {
     const { job } = this.props;

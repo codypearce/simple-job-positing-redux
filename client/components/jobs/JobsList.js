@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectJob } from '../../actions/index';
+import { bindActionCreators } from 'redux';
 
 import Job from './Job';
 
@@ -12,7 +14,7 @@ class JobList extends Component {
       if(!job.show) { return; }
 
       return (
-        <Job key={job.title} job={job} />
+        <Job key={job.title} job={job} selectJob={this.props.selectJob} />
       )
     })
   }
@@ -31,4 +33,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(JobList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({selectJob: selectJob}, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(JobList);

@@ -5,7 +5,7 @@ class ActiveJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      job: this.props.job,
+      job: this.props.job ? this.props.job : null,
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -14,6 +14,7 @@ class ActiveJob extends Component {
     }
   }
   _renderJob() {
+    const { job } = this.props;
     return (
       <div className="container">
         <div className="row my-4">
