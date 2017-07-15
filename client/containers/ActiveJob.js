@@ -15,7 +15,7 @@ class ActiveJob extends Component {
             <p>{job.company}</p>
         </div>
         <div className="my-4">
-          <p>I'm the job Description</p> 
+          <p>{job.description}</p> 
         </div>
         <div className="my-4">
           <p>Compensation: {job.salary}</p>
