@@ -10,18 +10,17 @@ class ActiveJob extends Component {
     const { job } = this.props;
     return (
       <div className="container">
-        <div className="row my-4">
-          <div className="col-4">
-            <h2 className="pointer" onClick={() => this._handleClick()}>{job.title}</h2>
+        <div className="text-center my-4">
+            <h2 className="pointer">{job.title}</h2>
             <p>{job.company}</p>
-          </div>
-          <div className="col">
-          <p>{job.salary}</p>
-          </div>
-          <div className="col">
-            <p>{job.location}</p>
-          </div>
-          <div  className="col">
+        </div>
+        <div className="my-4">
+          <p>I'm the job Description</p> 
+        </div>
+        <div className="my-4">
+          <p>Compensation: {job.salary}</p>
+          <p>Location: {job.location}</p>
+          <div className="text-center">
             <button className="btn btn-primary">Apply</button>
             <button className="btn btn-warn">Not Interested</button>
           </div>
