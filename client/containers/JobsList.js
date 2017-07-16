@@ -10,7 +10,12 @@ class JobList extends Component {
     super(props);
   }
   _renderList() {
-    return this.props.jobs.map(job => {
+    let displayJobs = this.props.jobs;
+    console.log(this.props.filteredJobs)
+    if(this.props.filteredJobs.length >= 1) {
+      displayJobs = this.props.filteredJobs;
+    }
+    return displayJobs.map(job => {
       if(!job.show) { return; }
 
       return (
@@ -34,6 +39,7 @@ function mapStateToProps(state) {
   return {
     jobs: state.jobs,
     job: state.activeJob,
+    filteredJobs: state.filteredJobs,
   };
 }
 
