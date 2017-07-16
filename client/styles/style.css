@@ -23,3 +23,9 @@ html {
 .pointer:hover {
   cursor: pointer;
 }
+
+.backBtn {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}

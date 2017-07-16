@@ -10,6 +10,9 @@ class ActiveJob extends Component {
     const { job } = this.props;
     return (
       <div className="container">
+        <div className="backBtn">
+          <button className="btn">Back to jobs</button>
+        </div>
         <div className="text-center my-4">
             <h2 className="pointer">{job.title}</h2>
             <p>{job.company}</p>
