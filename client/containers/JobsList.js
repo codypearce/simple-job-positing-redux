@@ -4,19 +4,30 @@ import { selectJob } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 import Job from '../components/jobs/Job';
+import SearchBar from '../components/jobs/SearchBar';
 
 class JobList extends Component {
   constructor(props) {
     super(props);
+    this.filterJobs = this.filterJobs.bind(this);
+    this.state = {
+      jobs: this.props.jobs
+    }
+  }
+  filterJobs(term) {
+    let jobs = this.props.jobs.slice();
+    
+    let filtered = jobs.filter(function(obj) {
+      return obj.title.toLowerCase().indexOf(term) > -1;
+    })
+
+    this.setState({jobs: filtered})
   }
   _renderList() {
-    let displayJobs = this.props.jobs;
-    console.log(this.props.filteredJobs)
-    if(this.props.filteredJobs.length >= 1) {
-      displayJobs = this.props.filteredJobs;
-    }
-    return displayJobs.map(job => {
-      if(!job.show) { return; }
+    return this.state.jobs.map(job => {
+      if(!job) {
+        return;
+      }
 
       return (
         <Job key={job.title} job={job} selectJob={this.props.selectJob} />
@@ -29,6 +40,7 @@ class JobList extends Component {
     }
     return (
       <div className="container">
+        <SearchBar filterJobs={this.filterJobs} />
         {this._renderList()}
       </div>
     )

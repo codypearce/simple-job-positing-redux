@@ -4,7 +4,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import Header from './components/shared/Header';
-import SearchBar from './containers/SearchBar';
 import JobsList from './containers/JobsList';
 import ActiveJob from './containers/ActiveJob';
 
@@ -20,7 +19,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <SearchBar />
         <JobsList />
         <ActiveJob />
       </div>

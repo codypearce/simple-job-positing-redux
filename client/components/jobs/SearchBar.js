@@ -10,6 +10,7 @@ export default class SearchBar extends Component {
   }
   _handleChange(event) {
     this.setState({value: event.target.value});
+    this.props.filterJobs(event.target.value)
   }
   render() {
     return (
