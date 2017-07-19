@@ -6,6 +6,7 @@ injectTapEventPlugin();
 import Header from './components/shared/Header';
 import JobsList from './containers/JobsList';
 import ActiveJob from './containers/ActiveJob';
+import AddJob from './containers/AddJob';
 
 require("./styles/style.css");
 
@@ -21,6 +22,7 @@ class App extends Component {
         <Header />
         <JobsList />
         <ActiveJob />
+        <AddJob />
       </div>
     )
   }
