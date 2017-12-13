@@ -16,7 +16,7 @@ class JobList extends Component {
   }
   filterJobs(term) {
     let jobs = this.props.jobs.slice();
-    
+
     let filtered = jobs.filter(function(obj) {
       return obj.title.toLowerCase().indexOf(term) > -1;
     })
@@ -40,7 +40,9 @@ class JobList extends Component {
     }
     return (
       <div className="container">
-        <SearchBar filterJobs={this.filterJobs} />
+        <div className="hero">
+            <SearchBar filterJobs={this.filterJobs} />
+        </div>
         {this._renderList()}
       </div>
     )
