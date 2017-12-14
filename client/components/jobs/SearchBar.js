@@ -48,6 +48,9 @@ export default class SearchBar extends Component {
                     <a className="dropdown-item" href="#">Front end</a>
                     <a className="dropdown-item" href="#">Back end</a>
                     <a className="dropdown-item" href="#">Fullstack</a>
+                    <a className="dropdown-item" href="#">Game dev</a>
+                    <a className="dropdown-item" href="#">Android Dev</a>
+                    <a className="dropdown-item" href="#">Dev ops</a>
                     <a className="dropdown-item" href="#">Remote Ok</a>
                 </div>
             </div>

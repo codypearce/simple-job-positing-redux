@@ -8,6 +8,11 @@ export default class Job extends Component {
   _handleClick() {
     this.props.selectJob(this.props.job)
   }
+  _renderTags() {
+      return this.props.job.tags.map((tag) => {
+          return <div key={tag}>{tag}</div>
+      })
+  }
   render() {
     const { job } = this.props;
     return (
@@ -21,6 +26,9 @@ export default class Job extends Component {
         </div>
         <div className="col">
           <p>{job.location}</p>
+        </div>
+        <div className="col">
+          {this._renderTags()}
         </div>
         <div  className="col">
           <button className="btn btn-primary">Apply</button>
