@@ -33,3 +33,20 @@ html {
 .hero {
     padding: 50px 0;
 }
+
+.tag {
+    display: inline;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    border: 1px solid #333;
+    transition: all .33s ease;
+    margin-right: 2px;
+}
+.tag:hover {
+    background: #333;
+    color: #ddd;
+    cursor: pointer;
+}

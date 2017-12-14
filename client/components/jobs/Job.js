@@ -10,7 +10,7 @@ export default class Job extends Component {
   }
   _renderTags() {
       return this.props.job.tags.map((tag) => {
-          return <div key={tag}>{tag}</div>
+          return <span key={tag} className='tag'>{tag}</span>
       })
   }
   render() {
