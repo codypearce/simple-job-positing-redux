@@ -43,7 +43,9 @@ class JobList extends Component {
         <div className="hero">
             <SearchBar filterJobs={this.filterJobs} />
         </div>
-        {this._renderList()}
+        <div className="jobs-list">
+            {this._renderList()}
+        </div>
       </div>
     )
   }

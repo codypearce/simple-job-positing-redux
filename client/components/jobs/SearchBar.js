@@ -14,7 +14,7 @@ export default class SearchBar extends Component {
   }
   render() {
     return (
-      <div className="center-block ">
+      <div id="jobs-search" className="center-block ">
         <div className="row">
           <input className="center-input col-3 form-control" value={this.state.value} onChange={(event) => this._handleChange(event)} placeholder="Search for jobs" />
         </div>

@@ -16,16 +16,17 @@ export default class Job extends Component {
   render() {
     const { job } = this.props;
     return (
-      <div className="row my-4">
+      <div className="row my-5">
         <div className="col-4">
           <h2 className="pointer" onClick={() => this._handleClick()}>{job.title}</h2>
-          <p>{job.company}</p>
+          <div className="d-flex flex-row align-items-center">
+            <p className="mb-0">{job.company}</p>
+            <span className="mx-2">-</span>
+            <small> {job.location}</small>
+          </div>
         </div>
         <div className="col">
-        <p>{job.salary}</p>
-        </div>
-        <div className="col">
-          <p>{job.location}</p>
+            <p>${job.salary}</p>
         </div>
         <div className="col">
           {this._renderTags()}
