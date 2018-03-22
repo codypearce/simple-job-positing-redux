@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 
 export default class Job extends Component {
   constructor(props) {
     super(props);
   }
-  _handleClick() {
-    this.props.selectJob(this.props.job)
-  }
+  // _handleClick() {
+  //   this.props.selectJob(this.props.job)
+  // }
   _renderTags() {
       return this.props.job.tags.map((tag) => {
           return <span key={tag} className='tag'>{tag}</span>
@@ -18,7 +18,7 @@ export default class Job extends Component {
     return (
       <div className="row my-5">
         <div className="col-4">
-          <h2 className="pointer" onClick={() => this._handleClick()}>{job.title}</h2>
+          <h2 className="pointer"><Link to="/job">{job.title}</Link></h2>
           <div className="d-flex flex-row align-items-center">
             <p className="mb-0">{job.company}</p>
             <span className="mx-2">-</span>

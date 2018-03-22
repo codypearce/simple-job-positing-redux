@@ -10,6 +10,12 @@ import AddJob from './containers/AddJob';
 
 require("./styles/style.css");
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
@@ -18,12 +24,14 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <JobsList />
-        <ActiveJob />
-        <AddJob />
-      </div>
+      <Router>
+        <div>
+            <Header />
+            <Route exact path='/' component={JobsList}/>
+            <Route exact path='/job' component={ActiveJob} />
+            <Route path='/job/new' component={AddJob} />
+        </div>
+      </Router>
     )
   }
 }

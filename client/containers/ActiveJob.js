@@ -18,7 +18,7 @@ class ActiveJob extends Component {
             <p>{job.company}</p>
         </div>
         <div className="my-4">
-          <p>{job.description}</p> 
+          <p>{job.description}</p>
         </div>
         <div className="my-4">
           <p>Compensation: {job.salary}</p>
@@ -34,7 +34,7 @@ class ActiveJob extends Component {
   render() {
     return (
       <div>
-      {this.props.job ? this._renderJob() : null}
+      {this.props.job ? this._renderJob() : <div>No job Selected</div>}
     </div>
     )
   }
