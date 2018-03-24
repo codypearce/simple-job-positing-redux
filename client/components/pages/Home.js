@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Job from "../jobs/Job";
-import SearchBar from "../jobs/SearchBar";
+import Job from "../shared/Job";
+import SearchBar from "../shared/SearchBar";
 
 export default class Home extends Component {
     constructor(props) {
