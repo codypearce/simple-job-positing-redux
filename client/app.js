@@ -15,11 +15,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducers/index";
-const createStoreWithMiddleware = applyMiddleware(
-    reducers,
-    applyMiddleware(thunk)
-)(createStore);
+import rootReducer from "./reducers/index";
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 class App extends Component {
     render() {
@@ -37,7 +34,7 @@ class App extends Component {
 }
 
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={createStoreWithMiddleware(rootReducer)}>
         <App />
     </Provider>,
     document.getElementById("root")
