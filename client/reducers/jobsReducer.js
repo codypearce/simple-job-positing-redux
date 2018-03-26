@@ -5,11 +5,8 @@ export default function jobsReducer(
     { type, payload }
 ) {
     switch (type) {
-        case FETCH_JOBS:
-            return {
-                ...state,
-                jobs: payload
-            };
+        case "FETCH_JOBS":
+            return { ...state, jobs: payload };
 
         default:
             return state;
