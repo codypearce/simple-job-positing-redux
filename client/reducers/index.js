@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
-import JobsReducer from './reducerJobs';
-import ActiveJob from './reducerActiveJob';
-import FilteredJobs from './filteredJobs';
+import { combineReducers } from "redux";
+import jobsReducer from "./jobsReducer";
+import ActiveJob from "./reducerActiveJob";
+import FilteredJobs from "./filteredJobs";
 
 const rootReducer = combineReducers({
-  jobs: JobsReducer,
-  activeJob: ActiveJob,
-  filteredJobs: FilteredJobs
+    jobs: jobsReducer,
+    activeJob: ActiveJob,
+    filteredJobs: FilteredJobs
 });
 
 export default rootReducer;

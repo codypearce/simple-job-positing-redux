@@ -16,7 +16,6 @@ export function fetchJobs(opts) {
     return async dispatch => {
         try {
             const res = require("../../data/jobs.js");
-            console.log(res);
             dispatch(fetchJobsAction(res));
         } catch (error) {
             console.log(error);
