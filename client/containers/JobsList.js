@@ -16,7 +16,7 @@ class JobList extends Component {
 
 function mapStateToProps(state) {
     return {
-        jobs: state.jobs,
+        jobs: state.jobs.jobs,
         job: state.activeJob,
         filteredJobs: state.filteredJobs
     };

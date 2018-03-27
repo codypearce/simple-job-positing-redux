@@ -21,8 +21,7 @@ export default class Home extends Component {
         this.setState({ jobs: filtered });
     }
     _renderList() {
-        return;
-        return this.state.jobs.map(job => {
+        return this.props.jobs.map(job => {
             if (!job) {
                 return;
             }
