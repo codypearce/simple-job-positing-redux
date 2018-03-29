@@ -7,9 +7,20 @@ export function selectJob(job) {
     };
 }
 
-export function fetchJobsAction(data) {
+export function fetchJobsRequest() {
     return {
-        type: types.FETCH_JOBS,
+        type: types.FETCH_JOBS_REQUEST
+    };
+}
+export function fetchJobsSucess(data) {
+    return {
+        type: types.FETCH_JOBS_SUCCESS,
+        payload: data
+    };
+}
+export function fetchJobsError(data) {
+    return {
+        type: types.FETCH_JOBS_ERROR,
         payload: data
     };
 }
@@ -17,10 +28,11 @@ export function fetchJobsAction(data) {
 export function fetchJobs(opts) {
     return async dispatch => {
         try {
+            dispatch(fetchJobsRequest);
             const res = require("../../data/jobs.js");
-            dispatch(fetchJobsAction(res.jobs));
+            dispatch(fetchJobsSucess(res.jobs));
         } catch (error) {
-            console.log(error);
+            dispatch(fetchJobsError(error));
         }
     };
 }
