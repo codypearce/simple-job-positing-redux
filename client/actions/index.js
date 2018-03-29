@@ -1,3 +1,5 @@
+import * as types from "./actionTypes";
+
 export function selectJob(job) {
     return {
         type: "JOB_SELECTED",
@@ -7,7 +9,7 @@ export function selectJob(job) {
 
 export function fetchJobsAction(data) {
     return {
-        type: "FETCH_JOBS",
+        type: types.FETCH_JOBS,
         payload: data
     };
 }
