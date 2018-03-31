@@ -2,7 +2,20 @@ import * as types from "./actionTypes";
 
 export function selectJobRequest(job) {
     return {
-        type: "JOB_SELECTED",
+        type: types.SELECT_JOB_REQUEST
+    };
+}
+
+export function selectJobSuccess(job) {
+    return {
+        type: types.SELECT_JOB_SUCCESS,
+        payload: job
+    };
+}
+
+export function selectJobError(job) {
+    return {
+        type: types.SELECT_JOB_ERROR,
         payload: job
     };
 }
