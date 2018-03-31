@@ -1,6 +1,6 @@
 import * as types from "./actionTypes";
 
-export function selectJob(job) {
+export function selectJobRequest(job) {
     return {
         type: "JOB_SELECTED",
         payload: job
@@ -25,14 +25,32 @@ export function fetchJobsError(data) {
     };
 }
 
-export function fetchJobs(opts) {
+export function fetchJobs() {
     return async dispatch => {
         try {
-            dispatch(fetchJobsRequest);
+            dispatch(fetchJobsRequest());
             const res = require("../../data/jobs.js");
             dispatch(fetchJobsSucess(res.jobs));
         } catch (error) {
             dispatch(fetchJobsError(error));
+        }
+    };
+}
+
+export function selectJob(id) {
+    return async dispatch => {
+        try {
+            dispatch(selectJobRequest());
+            const res = require("../../data/jobs.js");
+            let job;
+            for (let i = 0; i < res.jobs.length; i++) {
+                if (res.jobs[i].id == id) {
+                    job = res.jobs[i];
+                }
+            }
+            dispatch(selectJobSuccess(job));
+        } catch (error) {
+            dispatch(selectJobError(error));
         }
     };
 }

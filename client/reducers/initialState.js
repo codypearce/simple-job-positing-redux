@@ -1,3 +1,4 @@
 export default {
-    jobs: []
+    jobs: [],
+    isLoading: false
 };
