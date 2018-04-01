@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Job from "../shared/Job";
 import SearchBar from "../shared/SearchBar";
 
-export default class Home extends Component {
+export default class JobIndexPage extends Component {
     constructor(props) {
         super(props);
         this.filterJobs = this.filterJobs.bind(this);

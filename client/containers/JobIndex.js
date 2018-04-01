@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import { selectJob, fetchJobs } from "../actions/index";
 import { bindActionCreators } from "redux";
 
-import HomePage from "../components/pages/Home";
+import JobIndexPage from "../components/pages/JobIndexPage";
 
-class JobList extends Component {
+class JobIndex extends Component {
     componentWillMount() {
         this.props.fetchJobs();
     }
     render() {
-        return <HomePage {...this.props} />;
+        return <JobIndexPage {...this.props} />;
     }
 }
 
 function mapStateToProps(state) {
     return {
         jobs: state.jobs.jobs,
-        job: state.activeJob,
+        job: state.jobs,
         filteredJobs: state.filteredJobs
     };
 }
@@ -29,4 +29,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobList);
+export default connect(mapStateToProps, mapDispatchToProps)(JobIndex);

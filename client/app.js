@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Header from "./components/shared/Header";
-import JobsList from "./containers/JobsList";
-import ActiveJob from "./containers/ActiveJob";
+import JobIndex from "./containers/JobIndex";
+import JobDetail from "./containers/JobDetail";
 import AddJob from "./containers/AddJob";
 
 export default class App extends Component {
@@ -12,8 +12,8 @@ export default class App extends Component {
             <Router>
                 <div>
                     <Header />
-                    <Route exact path="/" component={JobsList} />
-                    <Route exact path="/job" component={ActiveJob} />
+                    <Route exact path="/" component={JobIndex} />
+                    <Route exact path="/job" component={JobDetail} />
                     <Route path="/job/new" component={AddJob} />
                 </div>
             </Router>

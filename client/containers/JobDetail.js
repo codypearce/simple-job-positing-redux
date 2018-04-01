@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import ActiveJobPage from "../components/pages/ActiveJobPage";
+import JobDetailPage from "../components/pages/JobDetailPage";
 
-class ActiveJob extends Component {
+class JobDetail extends Component {
     render() {
-        return <ActiveJobPage />;
+        return <JobDetailPage />;
     }
 }
 
@@ -15,4 +15,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(ActiveJob);
+export default connect(mapStateToProps)(JobDetail);
