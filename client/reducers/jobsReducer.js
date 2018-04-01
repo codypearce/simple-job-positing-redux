@@ -20,6 +20,23 @@ export default function jobsReducer(state = initialState, { type, payload }) {
                 error: payload,
                 isLoading: false
             };
+        case types.SELECT_JOB_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+        case types.SELECT_JOB_SUCCESS:
+            return {
+                ...state,
+                job: payload,
+                isLoading: false
+            };
+        case types.SELECT_JOB_ERROR:
+            return {
+                ...state,
+                error: payload,
+                isLoading: false
+            };
 
         default:
             return state;
