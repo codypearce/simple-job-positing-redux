@@ -1,5 +1,6 @@
 export const jobs = [
     {
+        id: 1,
         title: "Junior Developer",
         company: "Google",
         salary: "80,000",
@@ -10,6 +11,7 @@ export const jobs = [
         show: true
     },
     {
+        id: 2,
         title: "Ruby on Rails Dev",
         company: "Utah Startup",
         salary: "75,000",
@@ -20,6 +22,7 @@ export const jobs = [
         show: true
     },
     {
+        id: 3,
         title: "Dev Ops Developer",
         company: "Digital Ocean",
         salary: "110,000",
@@ -30,6 +33,7 @@ export const jobs = [
         show: true
     },
     {
+        id: 4,
         title: "Unity Developer",
         company: "Rockstar",
         salary: "120,000",

@@ -13,7 +13,7 @@ export default class App extends Component {
                 <div>
                     <Header />
                     <Route exact path="/" component={JobIndex} />
-                    <Route exact path="/job" component={JobDetail} />
+                    <Route path="/job/:id" component={JobDetail} />
                     <Route path="/job/new" component={AddJob} />
                 </div>
             </Router>

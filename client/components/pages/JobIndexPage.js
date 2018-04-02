@@ -36,9 +36,10 @@ export default class JobIndexPage extends Component {
         });
     }
     render() {
-        if (this.props.job) {
+        if (!this.props.jobs) {
             return null;
         }
+
         return (
             <div className="container">
                 <div className="hero">
