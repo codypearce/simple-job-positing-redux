@@ -1,21 +1,21 @@
 import * as types from "./actionTypes";
 
-export function selectJobRequest(job) {
+export function fetchJobRequest(job) {
     return {
-        type: types.SELECT_JOB_REQUEST
+        type: types.FETCH_JOB_REQUEST
     };
 }
 
-export function selectJobSuccess(job) {
+export function fetchJobSuccess(job) {
     return {
-        type: types.SELECT_JOB_SUCCESS,
+        type: types.FETCH_JOB_SUCCESS,
         payload: job
     };
 }
 
-export function selectJobError(job) {
+export function fetchJobError(job) {
     return {
-        type: types.SELECT_JOB_ERROR,
+        type: types.FETCH_JOB_ERROR,
         payload: job
     };
 }
@@ -50,10 +50,10 @@ export function fetchJobs() {
     };
 }
 
-export function selectJob(id) {
+export function fetchJob(id) {
     return async dispatch => {
         try {
-            dispatch(selectJobRequest());
+            dispatch(fetchJobRequest());
             const res = require("../../data/jobs.js");
             let job;
             for (let i = 0; i < res.jobs.length; i++) {
@@ -61,9 +61,9 @@ export function selectJob(id) {
                     job = res.jobs[i];
                 }
             }
-            dispatch(selectJobSuccess(job));
+            dispatch(fetchJobSuccess(job));
         } catch (error) {
-            dispatch(selectJobError(error));
+            dispatch(fetchJobError(error));
         }
     };
 }

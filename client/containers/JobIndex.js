@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectJob, fetchJobs } from "../actions/index";
+import { fetchJobs } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 import JobIndexPage from "../components/pages/JobIndexPage";
@@ -24,7 +24,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectJob: job => dispatch(selectJob(job)),
         fetchJobs: () => dispatch(fetchJobs())
     };
 }
