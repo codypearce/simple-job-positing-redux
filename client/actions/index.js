@@ -61,7 +61,11 @@ export function fetchJob(id) {
                     job = res.jobs[i];
                 }
             }
-            dispatch(fetchJobSuccess(job));
+            if (job) {
+                dispatch(fetchJobSuccess(job));
+            } else {
+                dispathc(fetchJobError("No Job found D:"));
+            }
         } catch (error) {
             dispatch(fetchJobError(error));
         }

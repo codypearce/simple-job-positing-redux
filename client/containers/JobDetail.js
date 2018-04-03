@@ -5,7 +5,7 @@ import JobDetailPage from "../components/pages/JobDetailPage";
 
 class JobDetail extends Component {
     componentWillMount() {
-        this.props.fetchJob();
+        this.props.fetchJob(this.props.match.params.id);
     }
     render() {
         return <JobDetailPage />;
