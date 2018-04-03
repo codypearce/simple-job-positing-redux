@@ -8,13 +8,13 @@ class JobDetail extends Component {
         this.props.fetchJob(this.props.match.params.id);
     }
     render() {
-        return <JobDetailPage />;
+        return <JobDetailPage job={this.props.job} />;
     }
 }
 
 function mapStateToProps(state) {
     return {
-        job: state.activeJob
+        job: state.jobs.job
     };
 }
 

@@ -17,7 +17,6 @@ class JobIndex extends Component {
 function mapStateToProps(state) {
     return {
         jobs: state.jobs.jobs,
-        job: state.jobs,
         filteredJobs: state.filteredJobs
     };
 }
