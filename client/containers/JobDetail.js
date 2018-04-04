@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { fetchJob } from "../actions/index";
 import JobDetailPage from "../components/pages/JobDetailPage";
@@ -11,6 +13,11 @@ class JobDetail extends Component {
         return <JobDetailPage job={this.props.job} />;
     }
 }
+
+JobDetail.propTypes = {
+    job: PropTypes.object,
+    fetchJob: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state) {
     return {
