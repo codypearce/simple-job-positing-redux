@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { fetchJobs } from "../actions/index";
 import { bindActionCreators } from "redux";
@@ -13,6 +15,11 @@ class JobIndex extends Component {
         return <JobIndexPage {...this.props} />;
     }
 }
+
+JobIndex.propTypes = {
+    jobs: PropTypes.object,
+    fetchJobs: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state) {
     return {

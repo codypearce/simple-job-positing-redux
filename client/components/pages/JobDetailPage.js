@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export default class JobDetailPage extends Component {
     constructor(props) {
         super(props);
     }
+    static propTypes = {
+        job: PropTypes.object
+    };
 
     _renderJob() {
         const { job } = this.props;

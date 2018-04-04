@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default class Job extends Component {
     constructor(props) {
         super(props);
     }
+    static propTypes = {
+        job: PropTypes.object.isRequired
+    };
     // _handleClick() {
     //   this.props.selectJob(this.props.job)
     // }

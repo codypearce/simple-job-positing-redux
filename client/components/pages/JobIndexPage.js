@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import Job from "../shared/Job";
 import SearchBar from "../shared/SearchBar";
@@ -11,6 +12,10 @@ export default class JobIndexPage extends Component {
             jobs: this.props.jobs
         };
     }
+    static propTypes = {
+        jobs: PropTypes.array
+    };
+
     filterJobs(term) {
         let jobs = this.props.jobs.slice();
 
