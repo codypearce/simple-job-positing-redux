@@ -11,7 +11,7 @@ export default class CreateJobPage extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container mt-5">
                 <h3 className="text-center mb-5">Add Job</h3>
                 <form
                     onSubmit={event => this._onFormSubmit(event)}

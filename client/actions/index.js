@@ -71,3 +71,21 @@ export function fetchJob(id) {
         }
     };
 }
+
+export function createJob(job) {
+    return async dispatch => {
+        try {
+            dispatch(createJobRequest());
+            const res = require("../../data/jobs.js");
+            const jobs = res.jobs;
+            let newJob = {
+                ...job,
+                id: jobs.length + 1,
+                show: true
+            };
+            dispatch(createJobSucess(newJob));
+        } catch (error) {
+            dispatch(createJobsError(error));
+        }
+    };
+}
