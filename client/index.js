@@ -6,13 +6,16 @@ injectTapEventPlugin();
 require("./styles/style.css");
 
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import store from "./store/configureStore";
 import App from "./App";
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </Provider>,
     document.getElementById("root")
 );

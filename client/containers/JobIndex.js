@@ -17,7 +17,7 @@ class JobIndex extends Component {
 }
 
 JobIndex.propTypes = {
-    jobs: PropTypes.object,
+    jobs: PropTypes.array,
     fetchJobs: PropTypes.func.isRequired
 };
 

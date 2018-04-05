@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class AddJobPage extends Component {
+export default class CreateJobPage extends Component {
     constructor(props) {
         super(props);
     }
