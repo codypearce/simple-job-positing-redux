@@ -1,5 +1,23 @@
 import * as types from "./actionTypes";
 
+export function fetchJobsRequest() {
+    return {
+        type: types.FETCH_JOBS_REQUEST
+    };
+}
+export function fetchJobsSucess(data) {
+    return {
+        type: types.FETCH_JOBS_SUCCESS,
+        payload: data
+    };
+}
+export function fetchJobsError(error) {
+    return {
+        type: types.FETCH_JOBS_ERROR,
+        payload: error
+    };
+}
+
 export function fetchJobRequest(job) {
     return {
         type: types.FETCH_JOB_REQUEST
@@ -13,28 +31,30 @@ export function fetchJobSuccess(job) {
     };
 }
 
-export function fetchJobError(job) {
+export function fetchJobError(error) {
     return {
         type: types.FETCH_JOB_ERROR,
+        payload: error
+    };
+}
+
+export function createJobRequest(job) {
+    return {
+        type: types.CREATE_JOB_REQUEST
+    };
+}
+
+export function createJobSuccess(job) {
+    return {
+        type: types.CREATE_JOB_SUCCESS,
         payload: job
     };
 }
 
-export function fetchJobsRequest() {
+export function createJobError(error) {
     return {
-        type: types.FETCH_JOBS_REQUEST
-    };
-}
-export function fetchJobsSucess(data) {
-    return {
-        type: types.FETCH_JOBS_SUCCESS,
-        payload: data
-    };
-}
-export function fetchJobsError(data) {
-    return {
-        type: types.FETCH_JOBS_ERROR,
-        payload: data
+        type: types.CREATE_JOB_ERROR,
+        payload: error
     };
 }
 
