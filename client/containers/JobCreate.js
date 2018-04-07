@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 import { createJob } from "../actions/index";
-import JobCreatePage from "../components/pages/CreateJobPage";
+import JobCreatePage from "../components/pages/JobCreatePage";
 
 class JobCreate extends Component {
     render() {
@@ -12,7 +12,7 @@ class JobCreate extends Component {
 }
 
 JobCreate.propTypes = {
-    fetchJob: PropTypes.func.isRequired
+    createJob: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
