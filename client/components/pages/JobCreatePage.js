@@ -1,22 +1,23 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default class CreateJobPage extends Component {
+export default class JobCreatePage extends Component {
     constructor(props) {
         super(props);
     }
+    static propTypes = {
+        createJob: Proptypes.func.isRequired
+    };
 
-    _onFormSubmit(event) {
-        event.preventDefault();
+    _createJob() {
+        this.props.createJob();
     }
 
     render() {
         return (
             <div className="container mt-5">
                 <h3 className="text-center mb-5">Add Job</h3>
-                <form
-                    onSubmit={event => this._onFormSubmit(event)}
-                    className="input-group d-flex flex-column"
-                >
+                <form className="input-group d-flex flex-column">
                     <input
                         className="form-control mb-3 w-50 mx-auto"
                         type="text"
@@ -46,7 +47,7 @@ export default class CreateJobPage extends Component {
                         />
                     </div>
                     <button
-                        type="submit"
+                        onClick={() => this._createJob()}
                         className="btn btn-primary w-50 mx-auto"
                     >
                         Add Job

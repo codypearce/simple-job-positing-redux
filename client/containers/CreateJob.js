@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 import { createJob } from "../actions/index";
-import CreateJobPage from "../components/pages/CreateJobPage";
+import JobCreatePage from "../components/pages/CreateJobPage";
 
-class CreateJob extends Component {
+class JobCreate extends Component {
     render() {
-        return <CreateJobPage createJob={this.props.createJob} />;
+        return <JobCreatePage createJob={this.props.createJob} />;
     }
 }
 
-CreateJob.propTypes = {
+JobCreate.propTypes = {
     fetchJob: PropTypes.func.isRequired
 };
 
@@ -25,4 +25,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateJob);
+export default connect(mapStateToProps, mapDispatchToProps)(JobCreate);
