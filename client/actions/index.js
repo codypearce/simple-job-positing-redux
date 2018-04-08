@@ -70,6 +70,10 @@ export function fetchJobs() {
     };
 }
 
+function searchString(property, term) {
+    return property.toLowerCase().indexOf(term.toLowerCase()) > -1;
+}
+
 export function searchJobs(query) {
     return async dispatch => {
         try {
@@ -77,10 +81,9 @@ export function searchJobs(query) {
             const res = require("../../data/jobs.js");
             const filteredJobs = res.jobs.filter(job => {
                 if (
-                    job.title.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
-                    job.company.toLowerCase().indexOf(query.toLowerCase()) >
-                        -1 ||
-                    job.salary.toLowerCase().indexOf(query.toLowerCase()) > -1
+                    searchString(job.title, query) ||
+                    searchString(job.company, query) ||
+                    searchString(job.salary, query)
                 ) {
                     return true;
                 }
