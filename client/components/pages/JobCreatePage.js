@@ -42,9 +42,12 @@ export default class JobCreatePage extends Component {
                         type="text"
                         placeholder="Company"
                     />
+
                     <input
                         className="form-control mb-3 w-50 mx-auto"
-                        type="text"
+                        type="number"
+                        step="1000"
+                        min="0"
                         placeholder="Salary"
                         onChange={e => this._handleUpdate(e, "salary")}
                         value={this.state.salary}

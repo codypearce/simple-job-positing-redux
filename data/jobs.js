@@ -1,4 +1,4 @@
-export const jobs = [
+export let jobs = [
     {
         id: 1,
         title: "Junior Developer",

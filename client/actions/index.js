@@ -103,6 +103,7 @@ export function createJob(job) {
                 id: jobs.length + 1,
                 show: true
             };
+            res.jobs.push(newJob);
             dispatch(createJobSuccess(newJob));
         } catch (error) {
             dispatch(createJobsError(error));
