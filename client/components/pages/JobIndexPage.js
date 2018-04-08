@@ -6,15 +6,13 @@ import SearchBar from "../shared/SearchBar";
 import FilterButtons from "../shared/FilterButtons";
 
 export default class JobIndexPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            jobs: this.props.jobs
-        };
-    }
     static propTypes = {
         jobs: PropTypes.array,
-        searchJobs: PropTypes.func.isRequired
+        searchJobs: PropTypes.func.isRequired,
+        selectJob: PropTypes.func.isRequired
+    };
+    state = {
+        jobs: this.props.jobs
     };
 
     _searchJobs(term) {
