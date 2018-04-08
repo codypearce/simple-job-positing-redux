@@ -7,7 +7,6 @@ import SearchBar from "../shared/SearchBar";
 export default class JobIndexPage extends Component {
     constructor(props) {
         super(props);
-        this.filterJobs = this.filterJobs.bind(this);
         this.state = {
             jobs: this.props.jobs
         };
@@ -17,7 +16,7 @@ export default class JobIndexPage extends Component {
         searchJobs: PropTypes.func.isRequired
     };
 
-    searchJobs(term) {
+    _searchJobs(term) {
         this.props.searchJobs(term);
     }
     _renderList() {
@@ -43,7 +42,7 @@ export default class JobIndexPage extends Component {
         return (
             <div className="container">
                 <div className="hero">
-                    <SearchBar filterJobs={this.searchJobs} />
+                    <SearchBar filterJobs={value => this._searchJobs(value)} />
                 </div>
                 <div className="jobs-list">{this._renderList()}</div>
             </div>
