@@ -70,6 +70,24 @@ export function fetchJobs() {
     };
 }
 
+export function searchJobs(query) {
+    return async dispatch => {
+        try {
+            dispatch(fetchJobsRequest());
+            const res = require("../../data/jobs.js");
+            const filteredJobs = res.jobs.filter(job => {
+                if (job.title.indexOf(query) > 0) {
+                    return true;
+                }
+            });
+            console.log(filteredJobs);
+            dispatch(fetchJobsSucess(filteredJobs));
+        } catch (error) {
+            dispatch(fetchJobsError(error));
+        }
+    };
+}
+
 export function fetchJob(id) {
     return async dispatch => {
         try {
