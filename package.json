@@ -6,6 +6,8 @@
     "scripts": {
         "build": "webpack --debug",
         "start": "webpack-dev-server",
+        "lint": "esw client",
+        "lint:watch": "esw client -w",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {

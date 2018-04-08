@@ -16,7 +16,8 @@ class JobDetail extends Component {
 
 JobDetail.propTypes = {
     job: PropTypes.object,
-    fetchJob: PropTypes.func.isRequired
+    fetchJob: PropTypes.func.isRequired,
+    match: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
