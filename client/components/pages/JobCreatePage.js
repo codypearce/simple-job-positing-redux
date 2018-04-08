@@ -15,21 +15,19 @@ export default class JobCreatePage extends Component {
     };
 
     _createJob() {
-        this.props.createJob();
+        this.props.createJob(this.state);
     }
     _handleUpdate(e, name) {
-        console.log(e.target.value, name);
         this.setState({
             [name]: e.target.value
         });
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="container mt-5">
                 <h3 className="text-center mb-5">Add Job</h3>
-                <form className="input-group d-flex flex-column">
+                <div className="input-group d-flex flex-column">
                     <input
                         className="form-control mb-3 w-50 mx-auto"
                         onChange={e => this._handleUpdate(e, "title")}
@@ -43,6 +41,13 @@ export default class JobCreatePage extends Component {
                         value={this.state.company}
                         type="text"
                         placeholder="Company"
+                    />
+                    <input
+                        className="form-control mb-3 w-50 mx-auto"
+                        type="text"
+                        placeholder="Salary"
+                        onChange={e => this._handleUpdate(e, "salary")}
+                        value={this.state.salary}
                     />
                     <input
                         className="form-control mb-3 w-50 mx-auto"
@@ -72,7 +77,7 @@ export default class JobCreatePage extends Component {
                     >
                         Add Job
                     </button>
-                </form>
+                </div>
             </div>
         );
     }
