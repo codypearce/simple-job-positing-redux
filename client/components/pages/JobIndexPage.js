@@ -13,17 +13,12 @@ export default class JobIndexPage extends Component {
         };
     }
     static propTypes = {
-        jobs: PropTypes.array
+        jobs: PropTypes.array,
+        searchJobs: PropTypes.func.isRequired
     };
 
-    filterJobs(term) {
-        let jobs = this.props.jobs.slice();
-
-        let filtered = jobs.filter(function(obj) {
-            return obj.title.toLowerCase().indexOf(term) > -1;
-        });
-
-        this.setState({ jobs: filtered });
+    searchJobs(term) {
+        this.props.searchJobs(term);
     }
     _renderList() {
         return this.props.jobs.map(job => {
@@ -48,7 +43,7 @@ export default class JobIndexPage extends Component {
         return (
             <div className="container">
                 <div className="hero">
-                    <SearchBar filterJobs={this.filterJobs} />
+                    <SearchBar filterJobs={this.searchJobs} />
                 </div>
                 <div className="jobs-list">{this._renderList()}</div>
             </div>

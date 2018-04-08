@@ -76,11 +76,13 @@ export function searchJobs(query) {
             dispatch(fetchJobsRequest());
             const res = require("../../data/jobs.js");
             const filteredJobs = res.jobs.filter(job => {
-                if (job.title.indexOf(query) > 0) {
+                console.log(
+                    job.title.toLowerCase().indexOf(query.toLowerCase()) > -1
+                );
+                if (job.title.toLowerCase().indexOf(query.toLowerCase()) > -1) {
                     return true;
                 }
             });
-            console.log(filteredJobs);
             dispatch(fetchJobsSucess(filteredJobs));
         } catch (error) {
             dispatch(fetchJobsError(error));

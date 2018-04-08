@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
-import { fetchJobs } from "../actions/index";
+import { fetchJobs, searchJobs } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 import JobIndexPage from "../components/pages/JobIndexPage";
@@ -18,19 +18,20 @@ class JobIndex extends Component {
 
 JobIndex.propTypes = {
     jobs: PropTypes.array,
-    fetchJobs: PropTypes.func.isRequired
+    fetchJobs: PropTypes.func.isRequired,
+    searchJobs: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
     return {
-        jobs: state.jobs.jobs,
-        filteredJobs: state.filteredJobs
+        jobs: state.jobs.jobs
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchJobs: () => dispatch(fetchJobs())
+        fetchJobs: () => dispatch(fetchJobs()),
+        searchJobs: query => dispatch(searchJobs(query))
     };
 }
 
