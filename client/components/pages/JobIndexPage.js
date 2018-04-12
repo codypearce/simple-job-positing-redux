@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import Job from "../shared/Job";
-import SearchBar from "../shared/SearchBar";
-import FilterButtons from "../shared/FilterButtons";
+import Job from "../ui/Job";
+import SearchBar from "../ui/SearchBar";
+import FilterButtons from "../ui/FilterButtons";
 
 export default class JobIndexPage extends Component {
     static propTypes = {
