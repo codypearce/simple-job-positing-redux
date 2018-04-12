@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Header from "./components/shared/Header";
+import SubHeader from "./components/shared/SubHeader";
 import Routes from "./Routes";
 
 export default class App extends Component {
@@ -8,6 +9,7 @@ export default class App extends Component {
         return (
             <div>
                 <Header />
+                <SubHeader />
                 <Routes />
             </div>
         );
