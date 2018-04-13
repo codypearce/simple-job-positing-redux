@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
-import { fetchJob } from "../actions/index";
+import { fetchJob } from "../actions/jobActions";
 import JobDetailPage from "../components/pages/JobDetailPage";
 
 class JobDetail extends Component {
