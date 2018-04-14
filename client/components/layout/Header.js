@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import LoginModal from "../ui/LoginModal";
+
 export default class Header extends Component {
     render() {
         return (
@@ -8,9 +10,7 @@ export default class Header extends Component {
                 <Link to="/" className="btn">
                     Home
                 </Link>
-                <Link to="/login" className="btn ml-3 mr-3">
-                    Login
-                </Link>
+                <LoginModal />
             </header>
         );
     }
