@@ -1,33 +1,33 @@
 html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
 .center-block {
-  margin: 10px auto;
+    margin: 10px auto;
 }
 .center-input {
-  display: block;
-  margin: 10px auto;
+    display: block;
+    margin: 10px auto;
 }
 
 .btn:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .pointer:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .backBtn {
-	position: absolute;
-	top: 10px;
-	left: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .hero {
@@ -42,11 +42,15 @@ html {
     text-transform: uppercase;
     color: #333;
     border: 1px solid #333;
-    transition: all .33s ease;
+    transition: all 0.33s ease;
     margin-right: 2px;
 }
 .tag:hover {
     background: #333;
     color: #ddd;
     cursor: pointer;
+}
+
+.modal.show .modal-dialog {
+    transform: translate(0, 75%);
 }

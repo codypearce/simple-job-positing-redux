@@ -29,7 +29,7 @@ export default class LoginModal extends Component {
                                     className="modal-title"
                                     id="exampleModalLabel"
                                 >
-                                    Modal title
+                                    Login
                                 </h5>
                                 <button
                                     type="button"
@@ -40,14 +40,33 @@ export default class LoginModal extends Component {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div className="modal-body">Login</div>
+                            <div className="modal-body">
+                                <div className="form-group">
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Email"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="password"
+                                        placeholder="Password"
+                                    />
+                                </div>
+                            </div>
                             <div className="modal-footer">
                                 <button
                                     type="button"
                                     className="btn btn-secondary"
                                     data-dismiss="modal"
                                 >
-                                    Close
+                                    Cancel
                                 </button>
                                 <button
                                     type="button"
