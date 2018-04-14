@@ -1,5 +1,8 @@
 export default {
     jobs: [],
     job: null,
-    isLoading: false
+    isLoading: false,
+    auth: {
+        user: null
+    }
 };
