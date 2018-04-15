@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import LoginModal from "../ui/LoginModal";
 import SignupModal from "../ui/SignupModal";
+import LogoutModal from "../ui/LogoutModal";
 
 export default class Header extends Component {
     static propTypes = {
@@ -18,11 +19,7 @@ export default class Header extends Component {
         );
     }
     _renderLoggedIn() {
-        return (
-            <Link to="/" className="btn">
-                Log Out
-            </Link>
-        );
+        return <LogoutModal />;
     }
     render() {
         const { isLoggedIn } = this.props;
