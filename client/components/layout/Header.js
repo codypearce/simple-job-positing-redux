@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import LoginModal from "../ui/LoginModal";
+import SignupModal from "../ui/SignupModal";
 
 export default class Header extends Component {
     render() {
@@ -11,6 +12,7 @@ export default class Header extends Component {
                     Home
                 </Link>
                 <LoginModal />
+                <SignupModal />
             </header>
         );
     }

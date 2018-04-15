@@ -7,10 +7,10 @@ export default class LoginModal extends Component {
     render() {
         return (
             <Modal
-                title="Login"
-                modalButton="Login"
-                button="Login"
-                modal="loginModal"
+                title="Signup"
+                modalButton="Signup"
+                button="Signup"
+                modal="signupModal"
             />
         );
     }

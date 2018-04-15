@@ -5,7 +5,8 @@ export default class Modal extends Component {
     static propTypes = {
         title: PropTypes.string,
         modalButton: PropTypes.string,
-        button: PropTypes.string
+        button: PropTypes.string,
+        modal: PropTypes.string
     };
     _renderHeader() {
         return (
@@ -63,21 +64,21 @@ export default class Modal extends Component {
         );
     }
     render() {
-        const { button } = this.props;
+        const { button, modal } = this.props;
         return (
             <div>
                 <button
                     type="button"
                     className="btn ml-3 mr-3"
                     data-toggle="modal"
-                    data-target="#loginModal"
+                    data-target={`#${modal}`}
                 >
                     {button}
                 </button>
 
                 <div
                     className="modal fade"
-                    id="loginModal"
+                    id={modal}
                     tabIndex="-1"
                     role="dialog"
                     aria-labelledby="loginModal"
