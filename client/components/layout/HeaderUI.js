@@ -6,7 +6,7 @@ import LoginModal from "../ui/LoginModal";
 import SignupModal from "../ui/SignupModal";
 import LogoutModal from "../ui/LogoutModal";
 
-export default class Header extends Component {
+export default class HeaderUI extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool
     };

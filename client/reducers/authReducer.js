@@ -11,7 +11,7 @@ export default function authReducer(state = initialState, { type, payload }) {
         case types.LOGIN_SUCCESS:
             return {
                 ...state,
-                user: payload,
+                isLoggedIn: payload,
                 isLoading: false
             };
         case types.LOGIN_ERROR:

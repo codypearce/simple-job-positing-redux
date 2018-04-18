@@ -18,12 +18,12 @@ export function loginError(error) {
     };
 }
 
-export function login(data) {
+export function login(isLoggedIn) {
     return async dispatch => {
         try {
             dispatch(loginRequest());
             // Login
-            dispatch(loginSucess());
+            dispatch(loginSucess(isLoggedIn));
         } catch (error) {
             dispatch(loginError(error));
         }
