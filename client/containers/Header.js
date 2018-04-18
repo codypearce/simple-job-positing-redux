@@ -7,17 +7,24 @@ import HeaderUI from "../components/layout/HeaderUI";
 
 class Header extends Component {
     static propTypes = {
-        isLoggedIn: PropTypes.bool
+        isLoggedIn: PropTypes.bool,
+        login: PropTypes.func
     };
 
     render() {
-        const { isLoggedIn } = this.props;
-        return <HeaderUI isLoggedIn={isLoggedIn} />;
+        const { isLoggedIn, login } = this.props;
+        return <HeaderUI isLoggedIn={isLoggedIn} login={login} />;
     }
 }
 
 function mapStateToProps(state) {
     return (isLoggedIn: state.auth.isLoggedIn);
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        login: () => dispatch(login)
+    };
 }
 
 export default connect()(Header);

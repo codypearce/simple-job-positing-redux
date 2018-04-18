@@ -8,12 +8,13 @@ import LogoutModal from "../ui/LogoutModal";
 
 export default class HeaderUI extends Component {
     static propTypes = {
-        isLoggedIn: PropTypes.bool
+        isLoggedIn: PropTypes.bool,
+        login: PropTypes.func
     };
     _renderLoggedOut() {
         return (
             <span className="d-flex align-items-center justify-content-end">
-                <LoginModal />
+                <LoginModal login={this.props.login} />
                 <SignupModal />
             </span>
         );
