@@ -19,13 +19,10 @@ export function loginError(error) {
 }
 
 export function login(isLoggedIn) {
-    console.log("wt");
     return async dispatch => {
-        console.log("teerest");
         try {
             dispatch(loginRequest());
             // Login
-            console.log("test");
             dispatch(loginSuccess(isLoggedIn));
         } catch (error) {
             dispatch(loginError(error));
