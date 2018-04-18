@@ -6,7 +6,8 @@ export default class Modal extends Component {
         title: PropTypes.string,
         modalButton: PropTypes.string,
         button: PropTypes.string,
-        modal: PropTypes.string
+        modal: PropTypes.string,
+        primaryFunc: PropTypes.func
     };
     _renderHeader() {
         return (
@@ -57,7 +58,11 @@ export default class Modal extends Component {
                 >
                     Cancel
                 </button>
-                <button type="button" className="btn btn-primary">
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={data => this.props.primaryFunc(data)}
+                >
                     {this.props.modalButton}
                 </button>
             </div>

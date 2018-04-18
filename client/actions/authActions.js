@@ -5,7 +5,7 @@ export function loginRequest() {
         type: types.LOGIN_REQUEST
     };
 }
-export function loginSucess(data) {
+export function loginSuccess(data) {
     return {
         type: types.LOGIN_SUCCESS,
         payload: data
@@ -19,11 +19,14 @@ export function loginError(error) {
 }
 
 export function login(isLoggedIn) {
+    console.log("wt");
     return async dispatch => {
+        console.log("teerest");
         try {
             dispatch(loginRequest());
             // Login
-            dispatch(loginSucess(isLoggedIn));
+            console.log("test");
+            dispatch(loginSuccess(isLoggedIn));
         } catch (error) {
             dispatch(loginError(error));
         }

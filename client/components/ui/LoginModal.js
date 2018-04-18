@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import Modal from "./Modal";
 
 export default class LoginModal extends Component {
+    static propTypes = {
+        login: PropTypes.func
+    };
     render() {
         return (
             <Modal
@@ -11,6 +14,7 @@ export default class LoginModal extends Component {
                 modalButton="Login"
                 button="Login"
                 modal="loginModal"
+                primaryFunc={() => this.props.login(true)}
             />
         );
     }

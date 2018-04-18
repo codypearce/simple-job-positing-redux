@@ -18,13 +18,13 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-    return (isLoggedIn: state.auth.isLoggedIn);
+    return { isLoggedIn: state.auth.isLoggedIn };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        login: () => dispatch(login)
+        login: isLoggedIn => dispatch(login(isLoggedIn))
     };
 }
 
-export default connect()(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
