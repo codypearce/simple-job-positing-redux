@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import Modal from "./Modal";
 
 export default class LoginModal extends Component {
+    static propTypes = {
+        logout: PropTypes.func
+    };
     render() {
         return (
             <Modal
@@ -11,6 +14,7 @@ export default class LoginModal extends Component {
                 modalButton="Logout"
                 button="Logout"
                 modal="LogoutModal"
+                primaryFunc={() => this.props.logout(true)}
             />
         );
     }

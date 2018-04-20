@@ -9,21 +9,31 @@ import LogoutModal from "../ui/LogoutModal";
 export default class HeaderUI extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool,
-        login: PropTypes.func.isRequired
+        login: PropTypes.func.isRequired,
+        history: PropTypes.object
     };
     _renderLoggedOut() {
         return (
             <span className="d-flex align-items-center justify-content-end">
-                <LoginModal login={() => this.props.login(true)} />
+                <LoginModal login={() => this.login()} />
                 <SignupModal />
             </span>
         );
     }
     _renderLoggedIn() {
-        return <LogoutModal />;
+        return <LogoutModal logout={() => this.logout()} />;
+    }
+    async login() {
+        this.props.login(true);
+        this.props.history.push("/jobs/create");
+    }
+    async logout() {
+        this.props.login(false);
+        this.props.history.push("/");
     }
     render() {
         const { isLoggedIn } = this.props;
+
         return (
             <header className="d-flex align-items-center justify-content-end">
                 <Link to="/" className="btn">

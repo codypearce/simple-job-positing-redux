@@ -15,11 +15,8 @@ export default function(ComposedComponent) {
             }
         }
         componentWillReceiveProps(nextProps) {
-            console.log("test");
             if (!nextProps.isLoggedIn) {
                 this.props.history.push("/");
-            } else {
-                console.log("you can go there!");
             }
         }
         render() {

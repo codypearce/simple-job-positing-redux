@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { login } from "../actions/authActions";
 
 import HeaderUI from "../components/layout/HeaderUI";
@@ -8,12 +9,15 @@ import HeaderUI from "../components/layout/HeaderUI";
 class Header extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool,
-        login: PropTypes.func
+        login: PropTypes.func,
+        history: PropTypes.object
     };
 
     render() {
-        const { isLoggedIn, login } = this.props;
-        return <HeaderUI isLoggedIn={isLoggedIn} login={login} />;
+        const { isLoggedIn, login, history } = this.props;
+        return (
+            <HeaderUI isLoggedIn={isLoggedIn} login={login} history={history} />
+        );
     }
 }
 
@@ -27,4 +31,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

@@ -61,6 +61,7 @@ export default class Modal extends Component {
                 <button
                     type="button"
                     className="btn btn-primary"
+                    data-dismiss="modal"
                     onClick={data => this.props.primaryFunc(data)}
                 >
                     {this.props.modalButton}
