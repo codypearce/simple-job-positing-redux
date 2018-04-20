@@ -15,7 +15,7 @@ export default class HeaderUI extends Component {
     _renderLoggedOut() {
         return (
             <span className="d-flex align-items-center justify-content-end">
-                <LoginModal login={() => this.login()} />
+                <LoginModal login={data => this.login(data)} />
                 <SignupModal />
             </span>
         );
@@ -23,9 +23,9 @@ export default class HeaderUI extends Component {
     _renderLoggedIn() {
         return <LogoutModal logout={() => this.logout()} />;
     }
-    async login() {
+    async login(data) {
         this.props.login(true);
-        this.props.history.push("/jobs/create");
+        // this.props.history.push("/jobs/create");
     }
     async logout() {
         this.props.login(false);

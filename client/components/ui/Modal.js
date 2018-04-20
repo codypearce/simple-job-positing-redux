@@ -9,6 +9,15 @@ export default class Modal extends Component {
         modal: PropTypes.string,
         primaryFunc: PropTypes.func
     };
+    state = {
+        email: "",
+        password: ""
+    };
+    _handleChange(event, key) {
+        this.setState({
+            [key]: event.target.value
+        });
+    }
     _renderHeader() {
         return (
             <div className="modal-header">
@@ -35,6 +44,8 @@ export default class Modal extends Component {
                         className="form-control"
                         aria-describedby="emailHelp"
                         placeholder="Email"
+                        value={this.state.email}
+                        onChange={(e, value) => this._handleChange(e, "email")}
                     />
                 </div>
                 <div className="form-group">
@@ -43,6 +54,10 @@ export default class Modal extends Component {
                         className="form-control"
                         aria-describedby="password"
                         placeholder="Password"
+                        value={this.state.password}
+                        onChange={(e, value) =>
+                            this._handleChange(e, "password")
+                        }
                     />
                 </div>
             </div>
@@ -62,7 +77,9 @@ export default class Modal extends Component {
                     type="button"
                     className="btn btn-primary"
                     data-dismiss="modal"
-                    onClick={data => this.props.primaryFunc(data)}
+                    onClick={() => {
+                        this.props.primaryFunc(this.state);
+                    }}
                 >
                     {this.props.modalButton}
                 </button>
