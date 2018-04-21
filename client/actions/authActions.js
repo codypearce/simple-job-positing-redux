@@ -18,12 +18,17 @@ export function loginError(error) {
     };
 }
 
-export function login(isLoggedIn) {
+export function login(user) {
     return async dispatch => {
         try {
             dispatch(loginRequest());
             // Login
-            dispatch(loginSuccess(isLoggedIn));
+            const res = await fetch("http://localhost:3000/login", {
+                body: JSON.stringify(user),
+                method: "POST",
+                credentials: "include"
+            });
+            dispatch(loginSuccess(res.body));
         } catch (error) {
             dispatch(loginError(error));
         }

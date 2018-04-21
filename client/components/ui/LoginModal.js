@@ -14,7 +14,7 @@ export default class LoginModal extends Component {
                 modalButton="Login"
                 button="Login"
                 modal="loginModal"
-                primaryFunc={data => this.props.login(data)}
+                primaryFunc={user => this.props.login(user)}
             />
         );
     }
