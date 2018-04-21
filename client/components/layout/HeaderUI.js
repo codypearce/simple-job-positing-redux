@@ -10,6 +10,7 @@ export default class HeaderUI extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool,
         login: PropTypes.func.isRequired,
+        logout: PropTypes.func.isRequired,
         history: PropTypes.object,
         error: PropTypes.string
     };
@@ -40,7 +41,7 @@ export default class HeaderUI extends Component {
         }
     }
     async logout() {
-        this.props.login();
+        this.props.logout();
         this._closeModal();
         this.props.history.push("/");
     }
