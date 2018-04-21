@@ -1,7 +1,10 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export default function jobsReducer(state = initialState, { type, payload }) {
+export default function jobsReducer(
+    state = initialState.jobs,
+    { type, payload }
+) {
     switch (type) {
         case types.FETCH_JOBS_REQUEST:
             return {

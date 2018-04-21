@@ -10,12 +10,16 @@ export default class HeaderUI extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool,
         login: PropTypes.func.isRequired,
-        history: PropTypes.object
+        history: PropTypes.object,
+        error: PropTypes.string
     };
     _renderLoggedOut() {
         return (
             <span className="d-flex align-items-center justify-content-end">
-                <LoginModal login={user => this.login(user)} />
+                <LoginModal
+                    login={user => this.login(user)}
+                    error={this.props.error}
+                />
                 <SignupModal />
             </span>
         );

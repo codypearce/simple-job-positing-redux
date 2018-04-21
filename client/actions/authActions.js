@@ -31,8 +31,7 @@ export function login(user) {
             })
                 .then(res => res.json())
                 .then(data => data);
-
-            console.log(res, user);
+            localStorage.setItem("token", res.token);
             dispatch(loginSuccess({ user: user }));
         } catch (error) {
             dispatch(loginError(error));

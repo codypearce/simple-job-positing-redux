@@ -1,7 +1,10 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export default function authReducer(state = initialState, { type, payload }) {
+export default function authReducer(
+    state = initialState.auth,
+    { type, payload }
+) {
     switch (type) {
         case types.LOGIN_REQUEST:
             return {

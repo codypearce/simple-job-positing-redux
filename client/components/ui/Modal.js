@@ -7,7 +7,8 @@ export default class Modal extends Component {
         modalButton: PropTypes.string,
         button: PropTypes.string,
         modal: PropTypes.string,
-        primaryFunc: PropTypes.func
+        primaryFunc: PropTypes.func,
+        error: PropTypes.string
     };
     state = {
         email: "",
@@ -86,8 +87,15 @@ export default class Modal extends Component {
             </div>
         );
     }
+    _renderError() {
+        return (
+            <span style={{ color: "red", fontSize: 12 }}>
+                {this.props.error.message}
+            </span>
+        );
+    }
     render() {
-        const { button, modal } = this.props;
+        const { button, modal, error } = this.props;
         return (
             <div>
                 <button
@@ -112,6 +120,7 @@ export default class Modal extends Component {
                             {this._renderHeader()}
                             {this._renderBody()}
                             {this._renderFooter()}
+                            {error ? this._renderError() : null}
                         </div>
                     </div>
                 </div>
