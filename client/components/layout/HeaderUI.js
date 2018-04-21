@@ -35,12 +35,13 @@ export default class HeaderUI extends Component {
     async login(user) {
         const res = await this.props.login(user);
         if (res) {
-            this._closeModal();
+            await this._closeModal();
             this.props.history.push("/jobs/create");
         }
     }
     async logout() {
-        this.props.login(false);
+        this.props.login();
+        this._closeModal();
         this.props.history.push("/");
     }
     render() {
