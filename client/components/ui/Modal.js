@@ -77,7 +77,6 @@ export default class Modal extends Component {
                 <button
                     type="button"
                     className="btn btn-primary"
-                    data-dismiss="modal"
                     onClick={() => {
                         this.props.primaryFunc(this.state);
                     }}
@@ -89,7 +88,7 @@ export default class Modal extends Component {
     }
     _renderError() {
         return (
-            <span style={{ color: "red", fontSize: 12 }}>
+            <span className="alert alert-danger">
                 {this.props.error.message}
             </span>
         );

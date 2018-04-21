@@ -5,7 +5,8 @@ import Modal from "./Modal";
 
 export default class LoginModal extends Component {
     static propTypes = {
-        login: PropTypes.func
+        login: PropTypes.func,
+        error: PropTypes.string
     };
     render() {
         return (
