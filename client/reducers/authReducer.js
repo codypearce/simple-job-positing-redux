@@ -27,6 +27,26 @@ export default function authReducer(
                 isLoading: false
             };
 
+        case types.LOGOUT_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+        case types.LOGOUT_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: "",
+                error: null,
+                isLoading: false
+            };
+        case types.LOGOUT_ERROR:
+            return {
+                ...state,
+                error: payload,
+                isLoading: false
+            };
+
         default:
             return state;
     }

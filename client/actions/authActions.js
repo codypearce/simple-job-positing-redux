@@ -20,6 +20,24 @@ export function loginError(error) {
     };
 }
 
+export function logoutRequest() {
+    return {
+        type: types.LOGOUT_REQUEST
+    };
+}
+export function logoutSuccess(data) {
+    return {
+        type: types.LOGOUT_SUCCESS,
+        payload: data
+    };
+}
+export function logoutError(error) {
+    return {
+        type: types.LOGOUT_ERROR,
+        payload: error
+    };
+}
+
 export function login(user) {
     return async dispatch => {
         try {
@@ -36,6 +54,20 @@ export function login(user) {
             return true;
         } catch (error) {
             dispatch(loginError(error));
+        }
+    };
+}
+
+export function logout() {
+    return async dispatch => {
+        try {
+            dispatch(logoutRequest());
+
+            localStorage.setItem("token", "");
+            dispatch(logoutSuccess());
+            return true;
+        } catch (error) {
+            dispatch(logoutnError(error));
         }
     };
 }
