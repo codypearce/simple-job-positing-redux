@@ -1,5 +1,7 @@
 import * as types from "./actionTypes";
 
+const BASE_URL = "http://localhost:3000";
+
 export function loginRequest() {
     return {
         type: types.LOGIN_REQUEST
@@ -23,12 +25,15 @@ export function login(user) {
         try {
             dispatch(loginRequest());
             // Login
-            const res = await fetch("http://localhost:3000/login", {
+            const res = await fetch(`${BASE_URL}/signin`, {
                 body: JSON.stringify(user),
-                method: "POST",
-                credentials: "include"
-            });
-            dispatch(loginSuccess(res.body));
+                method: "POST"
+            })
+                .then(res => res.json())
+                .then(data => data);
+
+            console.log(res, user);
+            dispatch(loginSuccess({ user: user }));
         } catch (error) {
             dispatch(loginError(error));
         }
