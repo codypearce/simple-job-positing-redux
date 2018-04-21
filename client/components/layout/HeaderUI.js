@@ -27,9 +27,17 @@ export default class HeaderUI extends Component {
     _renderLoggedIn() {
         return <LogoutModal logout={() => this.logout()} />;
     }
+    _closeModal() {
+        document.body.classList.remove("modal-open");
+        let backdrop = document.querySelector(".modal-backdrop");
+        document.body.removeChild(backdrop);
+    }
     async login(user) {
-        this.props.login(user);
-        this.props.history.push("/jobs/create");
+        const res = await this.props.login(user);
+        if (res) {
+            this._closeModal();
+            this.props.history.push("/jobs/create");
+        }
     }
     async logout() {
         this.props.login(false);

@@ -30,6 +30,7 @@ export default class Modal extends Component {
                     className="close"
                     data-dismiss="modal"
                     aria-label="Close"
+                    id="close-modal"
                 >
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -61,6 +62,7 @@ export default class Modal extends Component {
                         }
                     />
                 </div>
+                {this.props.error ? this._renderError() : null}
             </div>
         );
     }
@@ -93,6 +95,7 @@ export default class Modal extends Component {
             </span>
         );
     }
+
     render() {
         const { button, modal, error } = this.props;
         return (
@@ -107,7 +110,7 @@ export default class Modal extends Component {
                 </button>
 
                 <div
-                    className="modal fade"
+                    className="modal"
                     id={modal}
                     tabIndex="-1"
                     role="dialog"
@@ -119,7 +122,6 @@ export default class Modal extends Component {
                             {this._renderHeader()}
                             {this._renderBody()}
                             {this._renderFooter()}
-                            {error ? this._renderError() : null}
                         </div>
                     </div>
                 </div>

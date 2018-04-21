@@ -33,6 +33,7 @@ export function login(user) {
                 .then(data => data);
             localStorage.setItem("token", res.token);
             dispatch(loginSuccess({ user: user }));
+            return true;
         } catch (error) {
             dispatch(loginError(error));
         }
