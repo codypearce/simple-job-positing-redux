@@ -43,6 +43,15 @@ export default class JobCreatePage extends Component {
             tag: ""
         });
     }
+    _deleteTag(tag) {
+        const tags = this.state.tags.slice();
+        if (tags.includes(tag)) {
+            const newTags = tags.filter(item => item != tag);
+            this.setState({
+                tags: newTags
+            });
+        }
+    }
 
     render() {
         return (
@@ -104,7 +113,11 @@ export default class JobCreatePage extends Component {
                         {this.state.tags &&
                             this.state.tags.map(tag => {
                                 return (
-                                    <span key={tag} className="tag">
+                                    <span
+                                        key={tag}
+                                        className="tag"
+                                        onClick={e => this._deleteTag(tag)}
+                                    >
                                         {tag}
                                     </span>
                                 );
