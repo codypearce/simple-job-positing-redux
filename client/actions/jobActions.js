@@ -114,7 +114,7 @@ export function fetchJob(id) {
             if (job) {
                 dispatch(fetchJobSuccess(job));
             } else {
-                dispathc(fetchJobError("No Job found D:"));
+                dispatch(fetchJobError("No Job found D:"));
             }
         } catch (error) {
             dispatch(fetchJobError(error));
@@ -126,17 +126,15 @@ export function createJob(job) {
     return async dispatch => {
         try {
             dispatch(createJobRequest());
-            const res = require("../../data/jobs.js");
-            const jobs = res.jobs;
-            let newJob = {
-                ...job,
-                id: jobs.length + 1,
-                show: true
-            };
-            res.jobs.push(newJob);
-            dispatch(createJobSuccess(newJob));
+            const res = await fetch(`${BASE_URL}/jobs`, {
+                method: "POST",
+                body: JSON.stringify(job)
+            });
+
+            dispatch(createJobSuccess(job));
         } catch (error) {
-            dispatch(createJobsError(error));
+            console.log(error);
+            dispatch(createJobError(error));
         }
     };
 }

@@ -11,7 +11,7 @@ export default class JobCreatePage extends Component {
         location: "",
         description: "",
         salary: "",
-        tags: []
+        tags: ""
     };
 
     _createJob() {
@@ -58,6 +58,13 @@ export default class JobCreatePage extends Component {
                         placeholder="Location"
                         onChange={e => this._handleUpdate(e, "location")}
                         value={this.state.location}
+                    />
+                    <input
+                        className="form-control mb-3 w-50 mx-auto"
+                        type="text"
+                        placeholder="Tags"
+                        onChange={e => this._handleUpdate(e, "tags")}
+                        value={this.state.tags}
                     />
                     <div className="form-group">
                         <label

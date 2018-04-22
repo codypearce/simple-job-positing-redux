@@ -41,7 +41,6 @@ export default class Job extends Component {
                 <div className="col">{this._renderTags()}</div>
                 <div className="col">
                     <button className="btn btn-primary">Apply</button>
-                    <button className="btn btn-warn">Not Interested</button>
                 </div>
             </div>
         );

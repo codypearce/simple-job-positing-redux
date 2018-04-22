@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import Job from "../ui/Job";
 import SearchBar from "../ui/SearchBar";
-import FilterButtons from "../ui/FilterButtons";
 
 export default class JobIndexPage extends Component {
     static propTypes = {
@@ -45,9 +44,6 @@ export default class JobIndexPage extends Component {
                         <SearchBar
                             filterJobs={value => this._searchJobs(value)}
                         />
-                        <FilterButtons
-                            filterJobs={value => this._searchJobs(value)}
-                        />
                     </div>
 
                     <h3 className="text-center">Sorry No Jobs</h3>
@@ -59,9 +55,6 @@ export default class JobIndexPage extends Component {
             <div className="container">
                 <div className="hero">
                     <SearchBar filterJobs={value => this._searchJobs(value)} />
-                    <FilterButtons
-                        filterJobs={value => this._searchJobs(value)}
-                    />
                 </div>
                 <div className="jobs-list">{this._renderList()}</div>
             </div>
