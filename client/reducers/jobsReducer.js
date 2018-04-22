@@ -48,7 +48,6 @@ export default function jobsReducer(
         case types.CREATE_JOB_SUCCESS:
             return {
                 ...state,
-                jobs: [...state.jobs, payload],
                 isLoading: false
             };
         case types.CREATE_JOB_ERROR:

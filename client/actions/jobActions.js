@@ -132,6 +132,7 @@ export function createJob(job) {
             });
 
             dispatch(createJobSuccess(job));
+            return true;
         } catch (error) {
             console.log(error);
             dispatch(createJobError(error));
