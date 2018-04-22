@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 
 import Modal from "./Modal";
 
-export default class LoginModal extends Component {
+export default class SignupModal extends Component {
+    static propTypes = {
+        signup: PropTypes.func,
+        error: PropTypes.string
+    };
     render() {
         return (
             <Modal
@@ -11,6 +15,8 @@ export default class LoginModal extends Component {
                 modalButton="Signup"
                 button="Signup"
                 modal="signupModal"
+                primaryFunc={user => this.props.signup(user)}
+                error={this.props.error}
             />
         );
     }

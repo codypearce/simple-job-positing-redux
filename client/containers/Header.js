@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { login, logout } from "../actions/authActions";
+import { login, logout, signup } from "../actions/authActions";
 
 import HeaderUI from "../components/layout/HeaderUI";
 
@@ -30,6 +30,7 @@ class Header extends Component {
                 isLoggedIn={isLoggedIn}
                 login={login}
                 logout={logout}
+                signup={signup}
                 history={history}
                 error={error}
             />
@@ -48,7 +49,7 @@ function mapDispatchToProps(dispatch) {
     return {
         login: user => dispatch(login(user)),
         logout: () => dispatch(logout()),
-        signup: user => dispatch(user)
+        signup: user => dispatch(signup(user))
     };
 }
 

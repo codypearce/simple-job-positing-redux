@@ -20,6 +20,24 @@ export function loginError(error) {
     };
 }
 
+export function signupRequest() {
+    return {
+        type: types.SIGNUP_REQUEST
+    };
+}
+export function signupSuccess(data) {
+    return {
+        type: types.SIGNUP_SUCCESS,
+        payload: data
+    };
+}
+export function signupError(error) {
+    return {
+        type: types.SIGNUP_ERROR,
+        payload: error
+    };
+}
+
 export function logoutRequest() {
     return {
         type: types.LOGOUT_REQUEST
@@ -61,19 +79,19 @@ export function login(user) {
 export function signup(user) {
     return async dispatch => {
         try {
-            dispatch(loginRequest());
+            dispatch(signupRequest());
             // Login
-            const res = await fetch(`${BASE_URL}/signin`, {
+            const res = await fetch(`${BASE_URL}/signup`, {
                 body: JSON.stringify(user),
                 method: "POST"
             })
                 .then(res => res.json())
                 .then(data => data);
             localStorage.setItem("token", res.token);
-            dispatch(loginSuccess({ user: user }));
+            dispatch(signupSuccess({ user: user }));
             return true;
         } catch (error) {
-            dispatch(loginError(error));
+            dispatch(signupError(error));
         }
     };
 }

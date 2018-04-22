@@ -22,7 +22,7 @@ export default class HeaderUI extends Component {
                     login={user => this.login(user)}
                     error={this.props.error}
                 />
-                <SignupModal />
+                <SignupModal signup={user => this.signup(user)} />
             </span>
         );
     }
@@ -41,7 +41,7 @@ export default class HeaderUI extends Component {
             this.props.history.push("/jobs/create");
         }
     }
-    async login(user) {
+    async signup(user) {
         const res = await this.props.signup(user);
         if (res) {
             await this._closeModal();
