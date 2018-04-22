@@ -34,8 +34,25 @@ export default class JobIndexPage extends Component {
         });
     }
     render() {
-        if (!this.props.jobs) {
+        const { jobs } = this.props;
+        if (!jobs) {
             return null;
+        }
+        if (jobs && jobs.length < 1) {
+            return (
+                <div className="container">
+                    <div className="hero">
+                        <SearchBar
+                            filterJobs={value => this._searchJobs(value)}
+                        />
+                        <FilterButtons
+                            filterJobs={value => this._searchJobs(value)}
+                        />
+                    </div>
+
+                    <h3 className="text-center">Sorry No Jobs</h3>
+                </div>
+            );
         }
 
         return (
