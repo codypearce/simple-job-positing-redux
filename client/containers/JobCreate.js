@@ -6,14 +6,19 @@ import { createJob } from "../actions/jobActions";
 import JobCreatePage from "../components/pages/JobCreatePage";
 
 class JobCreate extends Component {
+    static propTypes = {
+        history: PropTypes.object,
+        createJob: PropTypes.func.isRequired
+    };
     render() {
-        return <JobCreatePage createJob={this.props.createJob} />;
+        return (
+            <JobCreatePage
+                createJob={this.props.createJob}
+                history={this.props.history}
+            />
+        );
     }
 }
-
-JobCreate.propTypes = {
-    createJob: PropTypes.func.isRequired
-};
 
 function mapStateToProps(state) {
     return {};

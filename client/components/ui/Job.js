@@ -23,6 +23,7 @@ export default class Job extends Component {
     }
     render() {
         const { job } = this.props;
+
         return (
             <div className="row my-5">
                 <div className="col-4">
@@ -38,7 +39,11 @@ export default class Job extends Component {
                 <div className="col">
                     <p>${job.salary}</p>
                 </div>
-                <div className="col">{this._renderTags()}</div>
+                <div className="col">
+                    {this.props.job.tags && this.props.job.tags.length > 0
+                        ? this._renderTags()
+                        : null}
+                </div>
                 <div className="col">
                     <button className="btn btn-primary">Apply</button>
                 </div>

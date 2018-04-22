@@ -24,11 +24,7 @@ export default class JobIndexPage extends Component {
             }
 
             return (
-                <Job
-                    key={job.title}
-                    job={job}
-                    selectJob={this.props.selectJob}
-                />
+                <Job key={job._id} job={job} selectJob={this.props.selectJob} />
             );
         });
     }

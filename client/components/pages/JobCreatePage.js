@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 export default class JobCreatePage extends Component {
     static propTypes = {
-        createJob: PropTypes.func.isRequired
+        createJob: PropTypes.func.isRequired,
+        history: PropTypes.object
     };
     state = {
         title: "",
@@ -11,15 +12,35 @@ export default class JobCreatePage extends Component {
         location: "",
         description: "",
         salary: "",
-        tags: ""
+        tag: "",
+        tags: []
     };
 
-    _createJob() {
-        this.props.createJob(this.state);
+    async _createJob() {
+        const res = await this.props.createJob(this.state);
+
+        if (res) {
+            this.props.history.push("/");
+        }
     }
     _handleUpdate(e, name) {
         this.setState({
             [name]: e.target.value
+        });
+    }
+    _addTag() {
+        const tags = this.state.tags.slice();
+        const tag = this.state.tag;
+        if (!tag) {
+            return;
+        }
+        if (tags.includes(tag)) {
+            return;
+        }
+        tags.push(tag);
+        this.setState({
+            tags: tags,
+            tag: ""
         });
     }
 
@@ -59,13 +80,37 @@ export default class JobCreatePage extends Component {
                         onChange={e => this._handleUpdate(e, "location")}
                         value={this.state.location}
                     />
-                    <input
-                        className="form-control mb-3 w-50 mx-auto"
-                        type="text"
-                        placeholder="Tags"
-                        onChange={e => this._handleUpdate(e, "tags")}
-                        value={this.state.tags}
-                    />
+                    <div className="input-group mb-3  w-50 mx-auto">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Tag"
+                            aria-label="Tag"
+                            aria-describedby="basic-addon2"
+                            onChange={e => this._handleUpdate(e, "tag")}
+                            value={this.state.tag}
+                        />
+                        <div className="input-group-append">
+                            <button
+                                className="btn btn-outline-secondary"
+                                type="button"
+                                onClick={e => this._addTag()}
+                            >
+                                Add Tag
+                            </button>
+                        </div>
+                    </div>
+                    <div className="row mb-3 w-50 mx-auto">
+                        {this.state.tags &&
+                            this.state.tags.map(tag => {
+                                return (
+                                    <span key={tag} className="tag">
+                                        {tag}
+                                    </span>
+                                );
+                            })}
+                    </div>
+
                     <div className="form-group">
                         <label
                             htmlFor="textarea"
