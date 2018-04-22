@@ -81,9 +81,8 @@ export function checkAuth() {
     return async dispatch => {
         try {
             dispatch(loginRequest());
-            // Login
             const token = localStorage.getItem("token");
-            const res = jwt.verify(token, "secret");
+            const res = jwt.verify(token, process.env.JWT_SECRET);
             dispatch(loginSuccess({ user: res.user }));
             return true;
         } catch (error) {
