@@ -71,7 +71,7 @@ export function login(user) {
             dispatch(loginSuccess({ user: user }));
             return true;
         } catch (error) {
-            dispatch(loginError(error));
+            dispatch(loginError("Email or Password is incorrect"));
         }
     };
 }
@@ -87,6 +87,10 @@ export function signup(user) {
             })
                 .then(res => res.json())
                 .then(data => data);
+            if (res.error) {
+                dispatch(signupError(res.error));
+                return false;
+            }
             localStorage.setItem("token", res.token);
             dispatch(signupSuccess({ user: user }));
             return true;

@@ -89,11 +89,7 @@ export default class Modal extends Component {
         );
     }
     _renderError() {
-        return (
-            <span className="alert alert-danger">
-                {this.props.error.message}
-            </span>
-        );
+        return <span className="alert alert-danger">{this.props.error}</span>;
     }
 
     render() {

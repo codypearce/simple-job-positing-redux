@@ -22,7 +22,10 @@ export default class HeaderUI extends Component {
                     login={user => this.login(user)}
                     error={this.props.error}
                 />
-                <SignupModal signup={user => this.signup(user)} />
+                <SignupModal
+                    error={this.props.error}
+                    signup={user => this.signup(user)}
+                />
             </span>
         );
     }
