@@ -26,7 +26,7 @@ export default class Job extends Component {
             <div className="row my-5">
                 <div className="col-4">
                     <h2 className="pointer">
-                        <Link to={`/jobs/${job.id}`}>{job.title}</Link>
+                        <Link to={`/jobs/${job._id}`}>{job.title}</Link>
                     </h2>
                     <div className="d-flex flex-row align-items-center">
                         <p className="mb-0">{job.company}</p>
