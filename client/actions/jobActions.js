@@ -1,4 +1,5 @@
 import * as types from "./actionTypes";
+const BASE_URL = process.env.BASE_URL;
 
 export function fetchJobsRequest() {
     return {
@@ -62,8 +63,10 @@ export function fetchJobs() {
     return async dispatch => {
         try {
             dispatch(fetchJobsRequest());
-            const res = require("../../data/jobs.js");
-            dispatch(fetchJobsSucess(res.jobs));
+            const res = await fetch(`${BASE_URL}/jobs`)
+                .then(res => res.json())
+                .then(data => data);
+            dispatch(fetchJobsSucess(res));
         } catch (error) {
             dispatch(fetchJobsError(error));
         }
