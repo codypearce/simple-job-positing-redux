@@ -9,9 +9,7 @@ export default class Job extends Component {
     static propTypes = {
         job: PropTypes.object.isRequired
     };
-    // _handleClick() {
-    //   this.props.selectJob(this.props.job)
-    // }
+
     _renderTags() {
         return this.props.job.tags.map(tag => {
             return (

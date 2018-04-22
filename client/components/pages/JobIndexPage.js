@@ -7,8 +7,7 @@ import SearchBar from "../ui/SearchBar";
 export default class JobIndexPage extends Component {
     static propTypes = {
         jobs: PropTypes.array,
-        searchJobs: PropTypes.func.isRequired,
-        selectJob: PropTypes.func.isRequired
+        searchJobs: PropTypes.func.isRequired
     };
     state = {
         jobs: this.props.jobs
@@ -23,9 +22,7 @@ export default class JobIndexPage extends Component {
                 return;
             }
 
-            return (
-                <Job key={job._id} job={job} selectJob={this.props.selectJob} />
-            );
+            return <Job key={job._id} job={job} />;
         });
     }
     render() {
