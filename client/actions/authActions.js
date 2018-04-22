@@ -128,3 +128,23 @@ export function logout() {
         }
     };
 }
+
+export function authRequest(user) {
+    return async dispatch => {
+        try {
+            // Login
+            const res = await fetch(`${BASE_URL}`, {
+                method: "GET",
+                headers: {
+                    Authorization: localStorage.getItem("token")
+                }
+            })
+                .then(res => res.json())
+                .then(data => data);
+            console.log(res);
+            return true;
+        } catch (error) {
+            dispatch(signupError(error));
+        }
+    };
+}
