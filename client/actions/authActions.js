@@ -1,4 +1,5 @@
 import * as types from "./actionTypes";
+import * as jwt from "jsonwebtoken";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -68,7 +69,22 @@ export function login(user) {
                 .then(res => res.json())
                 .then(data => data);
             localStorage.setItem("token", res.token);
-            dispatch(loginSuccess({ user: user }));
+            dispatch(loginSuccess({ user: res.user }));
+            return true;
+        } catch (error) {
+            dispatch(loginError("Email or Password is incorrect"));
+        }
+    };
+}
+
+export function checkAuth() {
+    return async dispatch => {
+        try {
+            dispatch(loginRequest());
+            // Login
+            const token = localStorage.getItem("token");
+            const res = jwt.verify(token, "secret");
+            dispatch(loginSuccess({ user: res.user }));
             return true;
         } catch (error) {
             dispatch(loginError("Email or Password is incorrect"));

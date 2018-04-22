@@ -9,6 +9,7 @@ export default function authReducer(
         case types.LOGIN_REQUEST:
             return {
                 ...state,
+                error: null,
                 isLoading: true
             };
         case types.LOGIN_SUCCESS:
@@ -29,6 +30,7 @@ export default function authReducer(
         case types.SIGNUP_REQUEST:
             return {
                 ...state,
+                error: null,
                 isLoading: true
             };
         case types.SIGNUP_SUCCESS:
@@ -50,6 +52,7 @@ export default function authReducer(
         case types.LOGOUT_REQUEST:
             return {
                 ...state,
+                error: null,
                 isLoading: true
             };
         case types.LOGOUT_SUCCESS:
