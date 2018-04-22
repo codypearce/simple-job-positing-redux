@@ -58,12 +58,32 @@ export function login(user) {
     };
 }
 
+export function signup(user) {
+    return async dispatch => {
+        try {
+            dispatch(loginRequest());
+            // Login
+            const res = await fetch(`${BASE_URL}/signin`, {
+                body: JSON.stringify(user),
+                method: "POST"
+            })
+                .then(res => res.json())
+                .then(data => data);
+            localStorage.setItem("token", res.token);
+            dispatch(loginSuccess({ user: user }));
+            return true;
+        } catch (error) {
+            dispatch(loginError(error));
+        }
+    };
+}
+
 export function logout() {
     return async dispatch => {
         try {
             dispatch(logoutRequest());
 
-            localStorage.setItem("token", "");
+            localStorage.removeItem("token");
             dispatch(logoutSuccess());
             return true;
         } catch (error) {

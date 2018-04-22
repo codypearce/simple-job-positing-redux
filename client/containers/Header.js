@@ -10,13 +10,21 @@ class Header extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool,
         login: PropTypes.func,
+        signup: PropTypes.func,
         history: PropTypes.object,
         error: PropTypes.string,
         logout: PropTypes.func
     };
 
     render() {
-        const { isLoggedIn, login, logout, history, error } = this.props;
+        const {
+            isLoggedIn,
+            login,
+            logout,
+            signup,
+            history,
+            error
+        } = this.props;
         return (
             <HeaderUI
                 isLoggedIn={isLoggedIn}
@@ -39,7 +47,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         login: user => dispatch(login(user)),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        signup: user => dispatch(user)
     };
 }
 

@@ -11,6 +11,7 @@ export default class HeaderUI extends Component {
         isLoggedIn: PropTypes.bool,
         login: PropTypes.func.isRequired,
         logout: PropTypes.func.isRequired,
+        signup: PropTypes.func.isRequired,
         history: PropTypes.object,
         error: PropTypes.string
     };
@@ -35,6 +36,13 @@ export default class HeaderUI extends Component {
     }
     async login(user) {
         const res = await this.props.login(user);
+        if (res) {
+            await this._closeModal();
+            this.props.history.push("/jobs/create");
+        }
+    }
+    async login(user) {
+        const res = await this.props.signup(user);
         if (res) {
             await this._closeModal();
             this.props.history.push("/jobs/create");
