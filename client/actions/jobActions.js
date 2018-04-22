@@ -81,8 +81,10 @@ export function searchJobs(query) {
     return async dispatch => {
         try {
             dispatch(fetchJobsRequest());
-            const res = require("../../data/jobs.js");
-            const filteredJobs = res.jobs.filter(job => {
+            const res = await fetch(`${BASE_URL}/jobs`)
+                .then(res => res.json())
+                .then(data => data);
+            const filteredJobs = res.filter(job => {
                 if (
                     searchString(job.title, query) ||
                     searchString(job.company, query) ||
