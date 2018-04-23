@@ -104,15 +104,12 @@ export function fetchJob(id) {
     return async dispatch => {
         try {
             dispatch(fetchJobRequest());
-            const res = require("../../data/jobs.js");
-            let job;
-            for (let i = 0; i < res.jobs.length; i++) {
-                if (res.jobs[i].id == id) {
-                    job = res.jobs[i];
-                }
-            }
-            if (job) {
-                dispatch(fetchJobSuccess(job));
+            const res = await fetch(`${BASE_URL}/jobs/${id}`)
+                .then(res => res.json())
+                .then(data => data);
+
+            if (res) {
+                dispatch(fetchJobSuccess(res));
             } else {
                 dispatch(fetchJobError("No Job found D:"));
             }
