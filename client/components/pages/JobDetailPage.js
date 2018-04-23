@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default class JobDetailPage extends Component {
     static propTypes = {
@@ -10,9 +11,6 @@ export default class JobDetailPage extends Component {
         const { job } = this.props;
         return (
             <div className="container">
-                <div className="backBtn">
-                    <button className="btn">Back to jobs</button>
-                </div>
                 <div className="text-center my-4">
                     <h2 className="pointer">{job.title}</h2>
                     <p>{job.company}</p>
@@ -25,7 +23,9 @@ export default class JobDetailPage extends Component {
                     <p>Location: {job.location}</p>
                     <div className="text-center">
                         <button className="btn btn-primary">Apply</button>
-                        <button className="btn btn-warn">Not Interested</button>
+                        <Link to="/" className="btn btn-warn ml-1">
+                            Not Interested
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -34,6 +34,10 @@ export default class JobDetailPage extends Component {
     render() {
         return (
             <div>
+                <Link to="/" className="btn btn-warn backBtn">
+                    Back to jobs
+                </Link>
+
                 {this.props.job ? (
                     this._renderJob()
                 ) : (
